@@ -2,7 +2,7 @@
 import React from "react";
 import { useStoreState, useStoreActions } from "../../../store";
 import NumberField from "../../../components/input/NumberField";
-import { Box } from "@mui/material";
+import { Box, Card } from "@mui/material";
 import ThresholdSelector from "./ThresholdSelector";
 
 
@@ -14,7 +14,7 @@ export default function ConfigBox() {
 
 	return (
 		<div>
-			<Box>
+			<Card>
 				<h1>Config</h1>
 				<p>
                 Seats in parliament:{" "}
@@ -40,7 +40,7 @@ export default function ConfigBox() {
 						onChange={num => editConfig({ elligibleVoterCount: num })}
 					/>
 				</p>
-			</Box>
+			</Card>
 		</div>
 	);
 }

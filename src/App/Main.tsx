@@ -6,6 +6,7 @@ import React from "react";
 import ConfigBox from "./core/input/config/ConfigBox";
 import { StoreProvider } from "easy-peasy";
 import { store } from "./store";
+import InputPanel from "./core/input/InputPanel";
 
 
 function Brand() {
@@ -54,7 +55,7 @@ function Main() {
 							</Toolbar>
 						</AppBar>
 						<Content>
-							<ConfigBox/>
+							<InputPanel/>
 						</Content>
 					</Box>
 				</ThemeProvider>

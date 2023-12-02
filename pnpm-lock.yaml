@@ -16,6 +16,7 @@ specifiers:
   '@types/uniqid': ^5.3.4
   apportionment: ^2.0.3
   easy-peasy: ^6.0.4
+  mui-color-input: ^2.0.1
   react: ^18.2.0
   react-dom: ^18.2.0
   react-scripts: 5.0.1
@@ -31,6 +32,7 @@ dependencies:
   '@mui/material': 5.14.19_swovqpovnl2mmspo3fisd4kchm
   apportionment: 2.0.3
   easy-peasy: 6.0.4_7vlqiss62sm7xvg3zulrr6vfpq
+  mui-color-input: 2.0.1_zvhvtrropy7qg6opfpwfyqm4ia
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   react-scripts: 5.0.1_3nx5jo67zijen5345e7wh3yieq
@@ -1681,6 +1683,11 @@ packages:
       postcss-selector-parser: ^6.0.10
     dependencies:
       postcss-selector-parser: 6.0.13
+    dev: false
+
+  /@ctrl/tinycolor/4.0.2:
+    resolution: {integrity: sha512-fKQinXE9pJ83J1n+C3rDl2xNLJwfoYNvXLRy5cYZA9hBJJw2q+sbb/AOSNKmLxnTWyNTmy4994dueSwP4opi5g==}
+    engines: {node: '>=14'}
     dev: false
 
   /@emotion/babel-plugin/11.11.0:
@@ -7485,6 +7492,28 @@ packages:
 
   /ms/2.1.3:
     resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==}
+    dev: false
+
+  /mui-color-input/2.0.1_zvhvtrropy7qg6opfpwfyqm4ia:
+    resolution: {integrity: sha512-NM7wuHccm8biSFP3WR66rVP0+jNovLnC8cyxGYd+T/BUeIZpXPN4DQcU9NpXNE3lSCi/9IaPdSQcsza2vTw6Mg==}
+    peerDependencies:
+      '@emotion/react': ^11.5.0
+      '@emotion/styled': ^11.3.0
+      '@mui/material': ^5.0.0
+      '@types/react': ^18.0.0
+      react: ^18.0.0
+      react-dom: ^18.0.0
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+    dependencies:
+      '@ctrl/tinycolor': 4.0.2
+      '@emotion/react': 11.11.1_d6xr7427ryrc3fdigbbbatktku
+      '@emotion/styled': 11.11.0_ruv3plsedowatqyemvt4mc2upa
+      '@mui/material': 5.14.19_swovqpovnl2mmspo3fisd4kchm
+      '@types/react': 18.2.39
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
     dev: false
 
   /multicast-dns/7.2.5:

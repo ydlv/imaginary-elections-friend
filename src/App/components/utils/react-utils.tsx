@@ -7,5 +7,5 @@ export const WhiteSpace: React.FC = () => {
 type PercentsProps = {number: number, fractionDigits?: number};
 
 export function Percents({number, fractionDigits}: PercentsProps) {
-	return <>{number.toFixed(fractionDigits)}%</>;
+	return <>{(number * 100).toFixed(fractionDigits)}%</>;
 }

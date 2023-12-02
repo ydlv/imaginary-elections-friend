@@ -6,9 +6,9 @@ import PartyNameEditor from "../core/input/parties/party-input-components/PartyN
 import { PartyComponent } from "../core/input/parties/party-input-components/party-component";
 import PartyColorEditor from "../core/input/parties/party-input-components/PartyColorEditor";
 import PartyVotesEditor from "../core/input/parties/party-input-components/PartyVotesEditor";
-import PartyPercentsOutput from "../core/input/parties/output/PartyPercentsOutput";
+import PartyPercentsOutput from "../core/output/PartyPercentsOutput";
 import { PartyTable } from "../components/PartyTable";
-import createPartyOutputComponent from "../core/input/parties/output/party-output";
+import createPartyOutputComponent from "../core/output/party-output";
 
 import { Add } from "@material-ui/icons";
 import DeletePartyButton from "../core/input/parties/party-input-components/DeletePartyButton";

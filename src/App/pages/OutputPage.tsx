@@ -3,8 +3,8 @@ import { appName } from "../../meta";
 import { Grid, Typography } from "@mui/material";
 import { PartyTable } from "../components/PartyTable";
 import { PartyComponent } from "../core/input/parties/party-input-components/party-component";
-import createPartyOutputComponent from "../core/input/parties/output/party-output";
-import PartyPercentsOutput from "../core/input/parties/output/PartyPercentsOutput";
+import createPartyOutputComponent from "../core/output/party-output";
+import PartyPercentsOutput from "../core/output/PartyPercentsOutput";
 const containerStyle = {
 	display: "flex",
 	alignItems: "center", // Center items vertically

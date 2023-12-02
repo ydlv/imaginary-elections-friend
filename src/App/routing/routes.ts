@@ -1,4 +1,6 @@
 export default {
 	home: "/",
-	config: "/config"
+	config: "/config",
+	parties: "/parties",
+	output: "/output"
 };

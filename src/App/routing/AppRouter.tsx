@@ -1,12 +1,14 @@
-import Home from "../pages/Home";
+import HomePage from "../pages/Home";
 import MenuIcon from "@mui/icons-material/Menu";
 import { HashRouter, Route, Routes } from "react-router-dom";
 import { AppBar, Box, CssBaseline, IconButton, Paper, Toolbar, Typography, styled } from "@mui/material";
 import { appName } from "../../meta";
-import ConfigBox from "../core/input/config/ConfigBox";
+import ConfigPage from "../pages/ConfigPage";
 import { AppNavLinks } from "./AppNavLinks";
 import routes from "./routes";
 import React from "react";
+import OutputPage from "../pages/OutputPage";
+import { PartiesInputPage } from "../pages/PartiesInputPage";
 
 
 
@@ -54,8 +56,10 @@ export default function AppRouter() {
 				</AppBar>
 				<Content>
 					<Routes>
-						<Route path={routes.home} element={<Home/>}/>
-						<Route path={routes.config} element={<ConfigBox/>}/>
+						<Route path={routes.home} element={<HomePage/>}/>
+						<Route path={routes.parties} element={<PartiesInputPage/>}/>
+						<Route path={routes.config} element={<ConfigPage/>}/>
+						<Route path={routes.output} element={<OutputPage/>}/>
 					</Routes>
 				</Content>
 			</Box>

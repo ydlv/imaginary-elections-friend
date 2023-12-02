@@ -1,14 +1,13 @@
 import React from "react";
 import { appName } from "../../meta";
-import InputPanel from "../core/input/InputPanel";
 import { Typography } from "@mui/material";
+import { PartiesInputPage } from "./PartiesInputPage";
 
 
-export default function Home() {
+export default function HomePage() {
 	return (
 		<>
 			<Typography typography={"h1"}> Welcome to {appName}!</Typography>
-			<InputPanel/>
 		</>
 	);
 }

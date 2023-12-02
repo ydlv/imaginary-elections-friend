@@ -1,13 +1,13 @@
 
 import React from "react";
-import { useStoreState, useStoreActions } from "../../../store";
-import NumberField from "../../../components/input/NumberField";
+import { useStoreState, useStoreActions } from "../store";
+import NumberField from "../components/input/NumberField";
 import { Box, Card } from "@mui/material";
-import ThresholdSelector from "./ThresholdSelector";
+import ThresholdSelector from "../core/input/config/ThresholdSelector";
 
 
 
-export default function ConfigBox() {
+export default function ConfigPage() {
 	const config = useStoreState(state => state.input.config);
 	const majority = useStoreState(state => state.output.neededForMajority);
 	const editConfig = useStoreActions(actions => actions.editConfig);

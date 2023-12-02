@@ -5,7 +5,9 @@ import { Link } from "react-router-dom";
 
 const links: [keyof typeof routes, React.ReactNode][] = [
 	["home", "home"],
-	["config", "config"]
+	["config", "config"],
+	["parties", "input parties"],
+	["output", "results"]
 ];
 
 export function AppNavLinks() {

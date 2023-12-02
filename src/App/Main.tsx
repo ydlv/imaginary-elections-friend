@@ -3,6 +3,10 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { theme } from "./theme";
 import { appName } from "../meta";
 import React from "react";
+import ConfigBox from "./core/input/config/ConfigBox";
+import { StoreProvider } from "easy-peasy";
+import { store } from "./store";
+import InputPanel from "./core/input/InputPanel";
 
 
 function Brand() {
@@ -34,26 +38,28 @@ const Content = styled(Paper)({
 function Main() {
 	return (
 		<>
-			<ThemeProvider theme={theme}>
-				<Box>
-					<CssBaseline />
-					<AppBar position="sticky">
-						<Toolbar>
-							<IconButton>
-								<MenuIcon />
-							</IconButton>
+			<StoreProvider store={store}>
+				<ThemeProvider theme={theme}>
+					<Box>
+						<CssBaseline />
+						<AppBar position="sticky">
+							<Toolbar>
+								<IconButton>
+									<MenuIcon />
+								</IconButton>
 
-							<Brand />
-							{"links will be here later".split(" ").map((x, i) => (
-								<Button color="inherit" key={i}>{x}</Button>
-							))}
-						</Toolbar>
-					</AppBar>
-					<Content>
-						App here
-					</Content>
-				</Box>
-			</ThemeProvider>
+								<Brand />
+								{"links will be here later".split(" ").map((x, i) => (
+									<Button color="inherit" key={i}>{x}</Button>
+								))}
+							</Toolbar>
+						</AppBar>
+						<Content>
+							<InputPanel/>
+						</Content>
+					</Box>
+				</ThemeProvider>
+			</StoreProvider>
 		</>
 	);
 }

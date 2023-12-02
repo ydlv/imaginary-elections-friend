@@ -1,6 +1,6 @@
 import React from "react";
 import { useStoreActions, useStoreState } from "../store";
-import { Input, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
+import { Button, IconButton, Input, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
 import { PartyInput } from "../store/model";
 import PartyNameEditor from "../core/input/parties/party-input-components/PartyNameEditor";
 import { PartyComponent } from "../core/input/parties/party-input-components/party-component";
@@ -10,20 +10,27 @@ import PartyPercentsOutput from "../core/input/parties/output/PartyPercentsOutpu
 import { PartyTable } from "../components/PartyTable";
 import createPartyOutputComponent from "../core/input/parties/output/party-output";
 
-export interface PartyInputTableProps {
-	fields?: [string, PartyComponent][];
-}
+import { Add } from "@material-ui/icons";
+import DeletePartyButton from "../core/input/parties/party-input-components/DeletePartyButton";
+
 
 const fields: [string, PartyComponent][] = [
 	["Color", PartyColorEditor],
 	["Name", PartyNameEditor],
 	["Votes", PartyVotesEditor],
 	["Seats", createPartyOutputComponent(output => output.seats)],
-	["%", PartyPercentsOutput]
+	["%", PartyPercentsOutput],
+	["Delete", DeletePartyButton]
 ];
 
-export function PartiesInputPage(props: PartyInputTableProps) {
+export function PartiesInputPage() {
+	const addParty = useStoreActions(state => state.addParty);
 	return (
-		<PartyTable fields={fields} />
+		<>
+			<PartyTable fields={fields} />
+			<IconButton onClick={() => addParty()}>
+				<Add/>
+			</IconButton>
+		</>
 	);
 }

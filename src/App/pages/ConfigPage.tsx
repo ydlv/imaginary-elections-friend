@@ -1,15 +1,16 @@
 
 import React from "react";
-import { useStoreState, useStoreActions } from "../store";
+import { useStoreState, useStoreActions } from "../store/store";
 import NumberField from "../components/input/NumberField";
 import { Box, Card } from "@mui/material";
-import ThresholdSelector from "../core/input/config/ThresholdSelector";
+import ThresholdSelector from "../core/elections/input/ThresholdSelector";
+import { TurnoutInput } from "../core/turnout/TurnoutInput";
 
 
 
 export default function ConfigPage() {
-	const config = useStoreState(state => state.input.config);
-	const majority = useStoreState(state => state.output.neededForMajority);
+	const config = useStoreState(state => state.electionInput.config);
+	const majority = useStoreState(state => state.electionOutput.neededForMajority);
 	const editConfig = useStoreActions(actions => actions.editConfig);
 
 	return (
@@ -31,15 +32,7 @@ export default function ConfigPage() {
 				<p>
 					<ThresholdSelector />
 				</p>
-				<p>
-                    Elligible voters:
-					<NumberField
-						inputProps={{min: 1}}
-						value={(config.elligibleVoterCount)}
-						integer={true}
-						onChange={num => editConfig({ elligibleVoterCount: num })}
-					/>
-				</p>
+				<TurnoutInput/>
 			</Card>
 		</div>
 	);

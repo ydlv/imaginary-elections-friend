@@ -1,4 +1,3 @@
-import { HasID } from "../model";
 
 export function findWithIndex<T extends HasID>(data: T[], id: ID): [T, int] {
 	const i = data.findIndex(x => x.id == id);

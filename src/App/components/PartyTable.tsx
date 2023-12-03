@@ -1,6 +1,6 @@
-import { useStoreState } from "../store";
+import { useStoreState } from "../store/store";
 import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
-import { PartyComponent } from "../core/input/parties/party-input-components/party-component";
+import { PartyComponent } from "../core/elections/input/party-component";
 import React from "react";
 
 export interface PartyTableProps {
@@ -8,7 +8,7 @@ export interface PartyTableProps {
 }
 
 export function PartyTable({fields}: PartyTableProps) {
-	const parties = useStoreState(state => state.input.parties);
+	const parties = useStoreState(state => state.electionInput.parties);
 	return (
 		<TableContainer component={Paper}>
 			<Table>

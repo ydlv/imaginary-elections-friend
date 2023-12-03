@@ -2,9 +2,10 @@ import React from "react";
 import { appName } from "../../meta";
 import { Grid, Typography } from "@mui/material";
 import { PartyTable } from "../components/PartyTable";
-import { PartyComponent } from "../core/input/parties/party-input-components/party-component";
-import createPartyOutputComponent from "../core/output/party-output";
-import PartyPercentsOutput from "../core/output/PartyPercentsOutput";
+import { PartyComponent } from "../core/elections/input/party-component";
+import createPartyOutputComponent from "../core/elections/output/party-output";
+import PartyPercentsOutput from "../core/elections/output/PartyPercentsOutput";
+import { TurnoutOutput } from "../core/turnout/TurnoutOutput";
 const containerStyle = {
 	display: "flex",
 	alignItems: "center", // Center items vertically
@@ -37,6 +38,7 @@ export default function OutputPage() {
 
 			</Grid>
 			<Grid item xs={6}>
+				<TurnoutOutput />
 				<PartyTable fields={fields} />
 			</Grid>
 		</Grid>

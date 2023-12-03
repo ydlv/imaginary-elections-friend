@@ -1,7 +1,7 @@
 import { ThemeProvider } from "@mui/material";
 import { theme } from "./theme";
 import { StoreProvider } from "easy-peasy";
-import { store } from "./store";
+import { store } from "./store/store";
 import AppRouter from "./routing/AppRouter";
 
 import React from "react";

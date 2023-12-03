@@ -1,29 +1,29 @@
 import { Action, Computed } from "easy-peasy";
 import { AppModel } from "./app-model";
 
-export interface PartyInput extends HasID {
+export interface PartyInputModel extends HasID {
     name: string;
     color: string;
     votes: int;
 }
 
-export interface ElectionConfig {
+export interface ElectionConfigModel {
     threshold?: Rational;
     seatsTotal: int;
 }
 
-export interface PartyOutput extends PartyInput {
+export interface PartyOutputModel extends PartyInputModel {
     seats: int;
     percentage: Rational;
 }
 
-export interface ElectionInput {
-    parties: PartyInput[];
-    config: ElectionConfig;
+export interface ElectionInputModel {
+    parties: PartyInputModel[];
+    config: ElectionConfigModel;
 }
 
-export interface ElectionOutput {
-    parties: PartyOutput[];
+export interface ElectionOutputModel {
+    parties: PartyOutputModel[];
     neededForMajority: int;
     hasThreshold: boolean;
     totalVotes: int;
@@ -31,11 +31,11 @@ export interface ElectionOutput {
 
 
 export interface ElectionModel {
-    electionInput: ElectionInput;
+    electionInput: ElectionInputModel;
     addParty: Action<AppModel>;
     removeParty: Action<AppModel, ID>;
-    editParty: Action<AppModel, Partial<PartyInput> & HasID>;
-    editConfig: Action<AppModel, Partial<ElectionConfig>>;
+    editParty: Action<AppModel, Partial<PartyInputModel> & HasID>;
+    editConfig: Action<AppModel, Partial<ElectionConfigModel>>;
     moveParty: Action<AppModel, HasID & { direction: "left" | "right" }>
-    electionOutput: Computed<AppModel, ElectionOutput>;
+    electionOutput: Computed<AppModel, ElectionOutputModel>;
 }

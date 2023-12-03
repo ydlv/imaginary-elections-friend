@@ -2,9 +2,10 @@ import { action, computed } from "easy-peasy";
 import uniqid from "uniqid";
 import { calculate } from "../computations/calculations";
 import { ElectionModel } from "../model/election-model";
-import { findIndex, findWithIndex, remove } from "../utils/id-array-operations";
+import { findIndex, findWithIndex, remove } from "../../util/id-array-operations";
 import { setAttributeFromPartial } from "../../util/set-attribute";
-
+import { generateParty } from "../../misc/generate-party";
+import cssColors from "../../util/css-colors";
 
 export const electionStorePart: ElectionModel = {
 	electionInput: {
@@ -19,7 +20,8 @@ export const electionStorePart: ElectionModel = {
 	},
 	addParty: action((state) => {
 		const newid = uniqid();
-		state.electionInput.parties.push({ id: newid, name: "Party name", color: "#000000", votes: 0 });
+		const { name, color } = generateParty();
+		state.electionInput.parties.push({ id: newid, name, color, votes: 0 });
 	}),
 	editParty: action((state, party) => {
 		const i = findIndex(state.electionInput.parties, party.id);

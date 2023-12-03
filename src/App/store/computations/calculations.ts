@@ -1,10 +1,10 @@
 import { hamilton } from "apportionment";
-import { ElectionInput, ElectionOutput, PartyInput, PartyOutput } from "../model/election-model";
+import { ElectionInputModel, ElectionOutputModel, PartyInputModel, PartyOutputModel } from "../model/election-model";
 
-export function calculate(input: ElectionInput): ElectionOutput {
+export function calculate(input: ElectionInputModel): ElectionOutputModel {
 	const allParties = input.parties;
 	let includedParties = allParties;
-	let excludedParties: PartyInput[] = [];
+	let excludedParties: PartyInputModel[] = [];
 	const totalTurnout = allParties.map(x => x.votes).reduce((s, x) => s + x, 0);
 	let seats = input.parties.map(() => 0);
 	if (input.config.seatsTotal >= 0) {
@@ -16,17 +16,17 @@ export function calculate(input: ElectionInput): ElectionOutput {
 		const result = hamilton(includedParties.map(x => (x.votes)), (input.config.seatsTotal));
 		seats = result.apportionment;
 	}
-	const includedPartyOutputs: PartyOutput[] = includedParties.map((x, i) => ({
+	const includedPartyOutputs: PartyOutputModel[] = includedParties.map((x, i) => ({
 		...x,
 		percentage: x.votes / totalTurnout,
 		seats: (seats[i])
 	}));
-	const excludedPartyOutputs: PartyOutput[] = excludedParties.map((x,i) => ({
+	const excludedPartyOutputs: PartyOutputModel[] = excludedParties.map((x,i) => ({
 		...x,
 		percentage: x.votes / totalTurnout,
 		seats: 0  
 	}));
-	const partyOutputs: PartyOutput[] = [...includedPartyOutputs, ...excludedPartyOutputs];
+	const partyOutputs: PartyOutputModel[] = [...includedPartyOutputs, ...excludedPartyOutputs];
 	// partyOutputs.sort((y, x) => (x.votes - y.votes));
 	return {
 		neededForMajority: Math.floor(1 + input.config.seatsTotal / 2),

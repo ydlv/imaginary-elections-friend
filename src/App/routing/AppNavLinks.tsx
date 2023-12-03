@@ -4,7 +4,6 @@ import routes from "./routes";
 import { Link } from "react-router-dom";
 
 const links: [keyof typeof routes, React.ReactNode][] = [
-	["home", "home"],
 	["config", "config"],
 	["parties", "input parties"],
 	["output", "results"]

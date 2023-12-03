@@ -1,15 +1,18 @@
-import HomePage from "../pages/Home";
-import MenuIcon from "@mui/icons-material/Menu";
-import { HashRouter, Route, Routes } from "react-router-dom";
+import MenuIcon from "@mui/icons-material/Menu";import {
+	HashRouter,
+	Navigate,
+	Route,
+	Routes,
+	useNavigate
+} from "react-router-dom";
 import { AppBar, Box, CssBaseline, IconButton, Paper, Toolbar, Typography, styled } from "@mui/material";
 import { appName } from "../../meta";
 import ConfigPage from "../pages/ConfigPage";
 import { AppNavLinks } from "./AppNavLinks";
 import routes from "./routes";
-import React from "react";
 import OutputPage from "../pages/OutputPage";
 import { PartiesInputPage } from "../pages/PartiesInputPage";
-
+import React from "react";
 
 
 function Brand() {
@@ -38,6 +41,9 @@ const Content = styled(Paper)({
 	padding: "2.5em"
 });
 
+const Fallback = () => {
+	return <Navigate to={routes.parties}/>;
+};
 
 export default function AppRouter() {
 	return (
@@ -56,10 +62,10 @@ export default function AppRouter() {
 				</AppBar>
 				<Content>
 					<Routes>
-						<Route path={routes.home} element={<HomePage/>}/>
 						<Route path={routes.parties} element={<PartiesInputPage/>}/>
 						<Route path={routes.config} element={<ConfigPage/>}/>
 						<Route path={routes.output} element={<OutputPage/>}/>
+						<Route path="*" element={<Fallback/>}/>
 					</Routes>
 				</Content>
 			</Box>

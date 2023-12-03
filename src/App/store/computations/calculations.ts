@@ -1,13 +1,13 @@
-import { hamilton } from "apportionment";
+import * as apportionment from "apportionment";
 import { ElectionInputModel, ElectionOutputModel, PartyInputModel, PartyOutputModel } from "../model/election-model";
+import { methodHumanName, methods } from "../model/apportionment-method";
+import { add } from "../../util/fp";
 
-export function calculate(input: ElectionInputModel): ElectionOutputModel {
+function filterByInclusion(input: ElectionInputModel) {
 	const allParties = input.parties;
 	let includedParties = allParties;
 	let excludedParties: PartyInputModel[] = [];
 	const totalTurnout = allParties.map(x => x.votes).reduce((s, x) => s + x, 0);
-	let seats = input.parties.map(() => 0);
-	// if (input.config.seatsTotal >= 0) {
 	if (input.config.threshold !== undefined) {
 		const minAmount = totalTurnout * input.config.threshold;
 		includedParties = allParties.filter(p => p.votes >= minAmount);
@@ -17,9 +17,16 @@ export function calculate(input: ElectionInputModel): ElectionOutputModel {
 			excludedParties = [];
 		}
 	}
-	const result = hamilton(includedParties.map(x => (x.votes)), (input.config.seatsTotal));
-	seats = result.apportionment;
-	// }
+	return {includedParties, excludedParties};
+}
+
+export function calculate(input: ElectionInputModel): ElectionOutputModel {
+	const totalTurnout = input.parties.map(x => x.votes).reduce(add, 0);
+	const methodName = input.config.method;
+	const method = methods[methodName];
+	const { excludedParties, includedParties } = filterByInclusion(input);
+	const seats = method(includedParties.map(x => (x.votes)), (input.config.seatsTotal));
+
 	const includedPartyOutputs: PartyOutputModel[] = includedParties.map((x, i) => ({
 		...x,
 		percentage: x.votes / totalTurnout,
@@ -36,6 +43,8 @@ export function calculate(input: ElectionInputModel): ElectionOutputModel {
 		neededForMajority: Math.floor(1 + input.config.seatsTotal / 2),
 		parties: partyOutputs,
 		hasThreshold: input.config.threshold !== undefined,
-		totalVotes: totalTurnout
+		totalVotes: totalTurnout,
+		methodHumanName: methodHumanName[input.config.method]
 	};
 }
+

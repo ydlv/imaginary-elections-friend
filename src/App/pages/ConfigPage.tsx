@@ -2,9 +2,11 @@
 import React from "react";
 import { useStoreState, useStoreActions } from "../store/store";
 import NumberField from "../components/input/NumberField";
-import { Box, Card } from "@mui/material";
-import ThresholdSelector from "../core/elections/input/ThresholdSelector";
+import { Box, Card, Grid } from "@mui/material";
+import ThresholdSelector from "../core/elections/input/config/ThresholdSelector";
 import { TurnoutInput } from "../core/turnout/TurnoutInput";
+import MethodSelector from "../core/elections/input/config/MethodSelector";
+import OutputPreview from "../core/elections/output/OutputPreview";
 
 
 
@@ -14,10 +16,10 @@ export default function ConfigPage() {
 	const editConfig = useStoreActions(actions => actions.editConfig);
 
 	return (
-		<div>
-			<Card>
+		<Grid container>
+			<Grid item xs={8}>
 				<h1>Config</h1>
-				<p>
+				<div>
                 Seats in parliament:{" "}
 					<NumberField
 						inputProps={{ type: "number", inputProps: { min: 1 } }}
@@ -25,15 +27,17 @@ export default function ConfigPage() {
 						onChange={num => editConfig({ seatsTotal: num })}
                     
 					/>
-				</p>
-				<p>
+				</div>
+				<div>
 					{majority.toString()} seats needed for majority
-				</p>
-				<p>
-					<ThresholdSelector />
-				</p>
+				</div>
+				<ThresholdSelector />
+				<MethodSelector/>
 				<TurnoutInput/>
-			</Card>
-		</div>
+			</Grid>
+			<Grid item xs={4}>
+				<OutputPreview/>
+			</Grid>
+		</Grid>
 	);
 }

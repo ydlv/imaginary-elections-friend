@@ -2,19 +2,20 @@ import React from "react";
 import { useStoreActions, useStoreState } from "../store/store";
 import { Button, Grid, IconButton, Input, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
 
-import PartyNameEditor from "../core/elections/input/PartyNameEditor";
-import { PartyComponent } from "../core/elections/input/party-component";
-import PartyColorEditor from "../core/elections/input/PartyColorEditor";
-import PartyVotesEditor from "../core/elections/input/PartyVotesEditor";
+import PartyNameEditor from "../core/elections/input/parties/PartyNameEditor";
+import { PartyComponent } from "../core/elections/input/parties/party-component";
+import PartyColorEditor from "../core/elections/input/parties/PartyColorEditor";
+import PartyVotesEditor from "../core/elections/input/parties/PartyVotesEditor";
 import PartyPercentsOutput from "../core/elections/output/PartyPercentsOutput";
 import { PartyTable } from "../components/PartyTable";
 import createPartyOutputComponent from "../core/elections/output/party-output";
 
 import { Add } from "@material-ui/icons";
-import DeletePartyButton from "../core/elections/input/DeletePartyButton";
+import DeletePartyButton from "../core/elections/input/parties/DeletePartyButton";
 import { TurnoutOutput } from "../core/turnout/TurnoutOutput";
 import ParliamentChart from "../core/charts/ParliamentChart";
 import PopularVoteChart from "../core/charts/PopularVoteChart";
+import OutputPreview from "../core/elections/output/OutputPreview";
 
 
 const fields: [string, PartyComponent][] = [
@@ -40,11 +41,7 @@ export function PartiesInputPage() {
 				<TurnoutOutput/>
 			</Grid>
 			<Grid item xs={4} style={padded}>
-				<PopularVoteChart height={300} width={300}
-					slotProps={{ legend: { hidden: true } }} />
-			
-				<ParliamentChart height={300} width={300}
-					slotProps={{ legend: { hidden: true } }} />
+				<OutputPreview/>
 			</Grid>
 		</Grid>
 	);

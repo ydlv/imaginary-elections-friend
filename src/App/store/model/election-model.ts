@@ -1,5 +1,6 @@
 import { Action, Computed } from "easy-peasy";
 import { AppModel } from "./app-model";
+import { ApportionmentMethodName } from "./apportionment-method";
 
 export interface PartyInputModel extends HasID {
     name: string;
@@ -10,6 +11,7 @@ export interface PartyInputModel extends HasID {
 export interface ElectionConfigModel {
     threshold?: Rational;
     seatsTotal: int;
+    method: ApportionmentMethodName;
 }
 
 export interface PartyOutputModel extends PartyInputModel {
@@ -27,6 +29,7 @@ export interface ElectionOutputModel {
     neededForMajority: int;
     hasThreshold: boolean;
     totalVotes: int;
+    methodHumanName: string;
 }
 
 

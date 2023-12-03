@@ -12,6 +12,7 @@ import createPartyOutputComponent from "../core/elections/output/party-output";
 
 import { Add } from "@material-ui/icons";
 import DeletePartyButton from "../core/elections/input/DeletePartyButton";
+import { TurnoutOutput } from "../core/turnout/TurnoutOutput";
 
 
 const fields: [string, PartyComponent][] = [
@@ -31,6 +32,7 @@ export function PartiesInputPage() {
 			<IconButton onClick={() => addParty()}>
 				<Add/>
 			</IconButton>
+			<TurnoutOutput/>
 		</>
 	);
 }

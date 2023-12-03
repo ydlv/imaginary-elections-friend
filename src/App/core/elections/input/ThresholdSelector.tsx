@@ -18,7 +18,7 @@ export default function ThresholdSelector() {
 		}
 	};
 
-	const setThreshold = (n: number) => editConfig({ threshold: n });
+	const setThreshold = (n: number) => editConfig({ threshold: n / 100 });
 	return (
 		<span>
             Threshold:

@@ -1,7 +1,7 @@
 import React from "react";
 import { useStoreState } from "../../../store/store";
 import { find } from "../../../util/id-array-operations";
-import { PartyComponent } from "../input/party-component";
+import { PartyComponent } from "../input/parties/party-component";
 import { PartyOutputModel } from "../../../store/model/election-model";
 
 export interface PartyOutputTemplate {

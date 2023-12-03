@@ -1,6 +1,6 @@
 import { IconButton } from "@mui/material";
 import { DeleteForever } from "@mui/icons-material";
-import { useStoreActions } from "../../../store/store";
+import { useStoreActions } from "../../../../store/store";
 import { PartyComponent } from "./party-component";
 import React from "react";
 

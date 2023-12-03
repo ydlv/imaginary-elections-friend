@@ -14,7 +14,8 @@ export const electionStorePart: ElectionModel = {
 		],
 		config: {
 			seatsTotal: 120,
-			threshold: undefined
+			method: "jefferson",
+			threshold: undefined,
 		},
 	},
 	addParty: action((state) => {
@@ -45,4 +46,5 @@ export const electionStorePart: ElectionModel = {
 		const input = state.electionInput;
 		return calculate(input);
 	}),
+	
 };

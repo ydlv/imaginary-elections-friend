@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import React from "react";
-import { useStoreState, useStoreActions } from "../../../store/store";
+import { useStoreState, useStoreActions } from "../../../../store/store";
 import { Switch } from "@mui/material";
-import NumberField from "../../../components/input/NumberField";
+import NumberField from "../../../../components/input/NumberField";
 
 
 export default function ThresholdSelector() {
@@ -20,7 +20,7 @@ export default function ThresholdSelector() {
 
 	const setThreshold = (n: number) => editConfig({ threshold: n / 100 });
 	return (
-		<span>
+		<div>
             Threshold:
 			<Switch checked={hasThreshold} onChange={toggle}/>
 			{hasThreshold && (
@@ -32,6 +32,6 @@ export default function ThresholdSelector() {
 					/>% (0-100)
 				</>
 			)}
-		</span>
+		</div>
 	);
 }

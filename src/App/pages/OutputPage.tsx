@@ -6,6 +6,8 @@ import { PartyComponent } from "../core/elections/input/party-component";
 import createPartyOutputComponent from "../core/elections/output/party-output";
 import PartyPercentsOutput from "../core/elections/output/PartyPercentsOutput";
 import { TurnoutOutput } from "../core/turnout/TurnoutOutput";
+import PopularVoteChart from "../core/charts/PopularVoteChart";
+import ParliamentChart from "../core/charts/ParliamentChart";
 const containerStyle = {
 	display: "flex",
 	alignItems: "center", // Center items vertically
@@ -31,15 +33,26 @@ const fields: [string, PartyComponent][] = [
 
 ];
 
+const padded = { padding: "4em" };
+
 export default function OutputPage() {
 	return (
 		<Grid container>
-			<Grid item xs={6}>
-
-			</Grid>
-			<Grid item xs={6}>
+			<Grid item xs={7} style={padded}>
 				<TurnoutOutput />
 				<PartyTable fields={fields} />
+			</Grid>
+			<Grid item xs={5} style={padded}>
+				<div >
+					<Typography component={"h2"}>Popular vote</Typography>
+					<PopularVoteChart height={400} width={400}
+						slotProps={{ legend: { hidden: true } }} />
+				</div>
+				<div >
+					<Typography component={"h2"}>Parliament seats</Typography>
+					<ParliamentChart height={400} width={400}
+						slotProps={{ legend: { hidden: true } }} />
+				</div>
 			</Grid>
 		</Grid>
 	);

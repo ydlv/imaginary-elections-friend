@@ -5,7 +5,6 @@ import { ElectionModel } from "../model/election-model";
 import { findIndex, findWithIndex, remove } from "../../util/id-array-operations";
 import { setAttributeFromPartial } from "../../util/set-attribute";
 import { generateParty } from "../../misc/generate-party";
-import cssColors from "../../util/css-colors";
 
 export const electionStorePart: ElectionModel = {
 	electionInput: {

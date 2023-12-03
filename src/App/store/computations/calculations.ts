@@ -1,6 +1,7 @@
 import { hamilton } from "apportionment";
-import { AppInput, AppOutput, PartyInput, PartyOutput } from "../model";
-export function calculate(input: AppInput): AppOutput {
+import { ElectionInput, ElectionOutput, PartyInput, PartyOutput } from "../model/election-model";
+
+export function calculate(input: ElectionInput): ElectionOutput {
 	const allParties = input.parties;
 	let includedParties = allParties;
 	let excludedParties: PartyInput[] = [];
@@ -27,12 +28,10 @@ export function calculate(input: AppInput): AppOutput {
 	}));
 	const partyOutputs: PartyOutput[] = [...includedPartyOutputs, ...excludedPartyOutputs];
 	// partyOutputs.sort((y, x) => (x.votes - y.votes));
-	const turnoutPercentage = (totalTurnout) / (input.config.elligibleVoterCount);
 	return {
 		neededForMajority: Math.floor(1 + input.config.seatsTotal / 2),
 		parties: partyOutputs,
-		turnoutPercentage: turnoutPercentage,
-		totalTurnout: totalTurnout,
-		hasThreshold: input.config.threshold !== undefined
+		hasThreshold: input.config.threshold !== undefined,
+		totalVotes: totalTurnout
 	};
 }

@@ -14,13 +14,13 @@ export const electionStorePart: ElectionModel = {
 		],
 		config: {
 			seatsTotal: 120,
-			threshold: 3.25 / 100
+			threshold: undefined
 		},
 	},
 	addParty: action((state) => {
 		const newid = uniqid();
 		const { name, color } = generateParty();
-		state.electionInput.parties.push({ id: newid, name, color, votes: 0 });
+		state.electionInput.parties.push({ id: newid, name, color, votes: 1 });
 	}),
 	editParty: action((state, party) => {
 		const i = findIndex(state.electionInput.parties, party.id);

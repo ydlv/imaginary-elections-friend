@@ -10,12 +10,12 @@ import { PartyTable } from "../core/elections/output/PartyTable";
 import createPartyOutputComponent from "../core/elections/output/party-output";
 
 import { Add } from "@material-ui/icons";
-import DeletePartyButton from "../core/elections/input/parties/DeletePartyButton";
 import { TurnoutOutput } from "../core/turnout/TurnoutOutput";
 import ParliamentChart from "../core/charts/ParliamentChart";
 import PopularVoteChart from "../core/charts/PopularVoteChart";
 import OutputPreview from "../core/elections/output/OutputPreview";
 import { useStoreActions } from "../../store/store";
+import PartyActionButtons from "../core/elections/input/parties/action-buttons/PartyActionButtons";
 
 
 const fields: [string, PartyComponent][] = [
@@ -24,7 +24,7 @@ const fields: [string, PartyComponent][] = [
 	["Votes", PartyVotesEditor],
 	["Seats", createPartyOutputComponent(output => output.seats)],
 	["%", PartyPercentsOutput],
-	["Delete", DeletePartyButton]
+	["Actions", PartyActionButtons]
 ];
 
 const padded = {padding: "1em"};

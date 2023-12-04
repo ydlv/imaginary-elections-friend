@@ -4,6 +4,7 @@ import { StoreProvider } from "easy-peasy";
 import { store } from "./store/store";
 import React from "react";
 import AppRouter from "./components/routing/AppRouter";
+import { version } from "../meta";
 
 function Main() {
 	return (
@@ -13,6 +14,9 @@ function Main() {
 					<AppRouter/>
 				</ThemeProvider>
 			</StoreProvider>
+			<footer>
+				Version {version}
+			</footer>
 		</>
 	);
 }

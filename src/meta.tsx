@@ -1,2 +1,2 @@
-export const appName = "PACLAVA";
-export const  appNameBrokenDown = "Parliamenarty Apportionment CaLculator And Visualization App";
+export const appName = "Imaginary elections friend";
+export const version = "0.0.1";

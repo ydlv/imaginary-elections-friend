@@ -5,7 +5,7 @@ import MenuIcon from "@mui/icons-material/Menu";import {
 	Routes,
 	useNavigate
 } from "react-router-dom";
-import { AppBar, Box, CssBaseline, IconButton, Paper, Toolbar, Typography, styled } from "@mui/material";
+import { AppBar, Box, CssBaseline, Grid, IconButton, Paper, Toolbar, Typography, styled } from "@mui/material";
 
 import ConfigPage from "../pages/ConfigPage";
 import { AppNavLinks } from "./AppNavLinks";
@@ -14,26 +14,21 @@ import OutputPage from "../pages/OutputPage";
 import { PartiesInputPage } from "../pages/PartiesInputPage";
 import React from "react";
 import { appName } from "../../../meta";
-
+import AboutPage from "../pages/AboutPage";
+import "@fontsource/caveat";
 
 function Brand() {
 	return (
-		<Typography
-			variant="h6"
-			noWrap
-			component="a"
-			sx={{
-				mr: 2,
-				display: "flex",
-				fontFamily: "monospace",
-				fontWeight: 700,
-				letterSpacing: ".8rem",
-				color: "inherit",
-				textDecoration: "none",
-			}}
-		>
-			{appName}
-		</Typography>
+		<table style={{fontFamily: "caveat", paddingRight: "2em"}}>
+			<tr>
+				<td>
+					<img src="/circle_logo.png" style={{height: "5em"}} />
+				</td>
+				<td>
+					{appName}
+				</td>
+			</tr>
+		</table>
 	);
 }
 
@@ -66,6 +61,7 @@ export default function AppRouter() {
 						<Route path={routes.parties} element={<PartiesInputPage/>}/>
 						<Route path={routes.config} element={<ConfigPage/>}/>
 						<Route path={routes.output} element={<OutputPage/>}/>
+						<Route path={routes.about} element={<AboutPage/>}/>
 						<Route path="*" element={<Fallback/>}/>
 					</Routes>
 				</Content>

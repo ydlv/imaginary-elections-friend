@@ -12,7 +12,8 @@ const PartyVotesEditor: PartyComponent = ({id}) => {
 	const editVotes = (votes: number) => editParty({ id, votes });
 
 	return (
-		<NumberField value={partyInput.votes} onChange={editVotes} />
+		<NumberField value={partyInput.votes} onChange={editVotes} 
+			inputProps={{ min: 0 }} />
 	);
 };
 

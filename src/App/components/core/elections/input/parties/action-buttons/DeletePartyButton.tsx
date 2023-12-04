@@ -1,9 +1,9 @@
 import { IconButton } from "@mui/material";
 import { DeleteForever } from "@mui/icons-material";
-import { useStoreActions, useStoreState } from "../../../../../store/store";
-import { PartyComponent } from "./party-component";
+import { useStoreActions, useStoreState } from "../../../../../../store/store";
+import { PartyComponent } from "../party-component";
 import React, { useState } from "react";
-import DeleteConfirm from "../../../../modals/DeleteConfirm";
+import DeleteConfirm from "../../../../../modals/DeleteConfirm";
 
 
 const DeletePartyButton: PartyComponent = ({ id }) => {

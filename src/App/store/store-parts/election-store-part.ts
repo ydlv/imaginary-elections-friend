@@ -37,7 +37,7 @@ export const electionStorePart: ElectionModel = {
 	}),
 	moveParty: action((state, { direction, id }) => {
 		const i = state.electionInput.parties.findIndex(x => x.id == id);
-		const j = i + (direction == "left" ? -1 : 1);
+		const j = i + (direction == "up" ? -1 : 1);
 
 		const partyI = state.electionInput.parties[i];
 		const partyJ = state.electionInput.parties[j];

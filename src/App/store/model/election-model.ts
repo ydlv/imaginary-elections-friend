@@ -43,6 +43,6 @@ export interface ElectionModel {
     removeParty: Action<AppModel, ID>;
     editParty: Action<AppModel, Partial<PartyInputModel> & HasID>;
     editConfig: Action<AppModel, Partial<ElectionConfigModel>>;
-    moveParty: Action<AppModel, HasID & { direction: "left" | "right" }>
+    moveParty: Action<AppModel, HasID & { direction: "up" | "down" }>
     electionOutput: Computed<AppModel, ElectionOutputModel>;
 }

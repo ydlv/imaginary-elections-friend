@@ -1,18 +1,32 @@
 import { IconButton } from "@mui/material";
 import { DeleteForever } from "@mui/icons-material";
-import { useStoreActions } from "../../../../../store/store";
+import { useStoreActions, useStoreState } from "../../../../../store/store";
 import { PartyComponent } from "./party-component";
-import React from "react";
-
+import React, { useState } from "react";
+import DeleteConfirm from "../../../../modals/DeleteConfirm";
 
 
 const DeletePartyButton: PartyComponent = ({ id }) => {
+	const canRemove = useStoreState(state => state.electionInput.parties.length > 1);
 	const removeParty = useStoreActions(state => state.removeParty);
-
+	const [isOpen, setOpen] = useState(false);
+	const onClosed = (sure: boolean) => {
+		if (sure) {
+			removeParty(id);
+		}
+		else {
+			setOpen(false);
+		}
+	};
 	return (
-		<IconButton onClick={() => removeParty(id)}>
-			<DeleteForever/>
-		</IconButton>
+		<>
+			{canRemove && (<>
+				<IconButton onClick={() => setOpen(true)}>
+					<DeleteForever />
+				</IconButton>
+				<DeleteConfirm show={isOpen} closed={onClosed} id={id} />
+			</>)}
+		</>
 	);
 };
 

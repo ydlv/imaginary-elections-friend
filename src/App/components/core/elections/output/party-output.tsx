@@ -1,8 +1,8 @@
 import React from "react";
-import { useStoreState } from "../../../store/store";
-import { find } from "../../../util/id-array-operations";
+import { useStoreState } from "../../../../store/store";
+import { find } from "../../../../util/id-array-operations";
+import { PartyOutputModel } from "../../../../store/model/election-model";
 import { PartyComponent } from "../input/parties/party-component";
-import { PartyOutputModel } from "../../../store/model/election-model";
 
 export interface PartyOutputTemplate {
     (party: PartyOutputModel): React.ReactNode;

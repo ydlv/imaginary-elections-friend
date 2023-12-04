@@ -6,13 +6,14 @@ import MenuIcon from "@mui/icons-material/Menu";import {
 	useNavigate
 } from "react-router-dom";
 import { AppBar, Box, CssBaseline, IconButton, Paper, Toolbar, Typography, styled } from "@mui/material";
-import { appName } from "../../meta";
+
 import ConfigPage from "../pages/ConfigPage";
 import { AppNavLinks } from "./AppNavLinks";
 import routes from "./routes";
 import OutputPage from "../pages/OutputPage";
 import { PartiesInputPage } from "../pages/PartiesInputPage";
 import React from "react";
+import { appName } from "../../../meta";
 
 
 function Brand() {

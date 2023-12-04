@@ -1,4 +1,4 @@
-import { useStoreState } from "../../../store/store";
+import { useStoreState } from "../../../../store/store";
 import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
 import { PartyComponent } from "../input/parties/party-component";
 import React from "react";

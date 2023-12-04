@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import React from "react";
-import { useStoreState, useStoreActions } from "../../../../store/store";
+import { useStoreState, useStoreActions } from "../../../../../store/store";
 import { Switch } from "@mui/material";
-import NumberField from "../../../../components/utils/input/NumberField";
+import NumberField from "../../../../../components/utils/input/NumberField";
 
 
 export default function ThresholdSelector() {

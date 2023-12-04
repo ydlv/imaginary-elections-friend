@@ -1,6 +1,7 @@
-import { useStoreState } from "../../store/store";
-import { Percents } from "../../components/utils/react-utils";
+
 import React from "react";
+import { Percents } from "../../utils/react-utils";
+import { useStoreState } from "../../../store/store";
 
 export function TurnoutOutput() {
 	const turnoutPercents = useStoreState(state => state.turnoutOutput.turnoutPercentage);

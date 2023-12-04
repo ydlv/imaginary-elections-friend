@@ -1,6 +1,5 @@
-import * as apportionment from "apportionment";
 import { ElectionInputModel, ElectionOutputModel, PartyInputModel, PartyOutputModel } from "../model/election-model";
-import { methodHumanName, methods } from "../model/apportionment-method";
+import { isDivisorMethod, methodHumanName, methods } from "../model/apportionment-method";
 import { add } from "../../util/fp";
 
 function filterByInclusion(input: ElectionInputModel) {
@@ -25,14 +24,15 @@ export function calculate(input: ElectionInputModel): ElectionOutputModel {
 	const methodName = input.config.method;
 	const method = methods[methodName];
 	const { excludedParties, includedParties } = filterByInclusion(input);
-	const seats = method(includedParties.map(x => (x.votes)), (input.config.seatsTotal));
+	const ifNotExact = input.config.ifNotExact;
+	const [seats, resultApproximation] = method(includedParties.map(x => (x.votes)), (input.config.seatsTotal), ifNotExact);
 
 	const includedPartyOutputs: PartyOutputModel[] = includedParties.map((x, i) => ({
 		...x,
 		percentage: x.votes / totalTurnout,
 		seats: (seats[i])
 	}));
-	const excludedPartyOutputs: PartyOutputModel[] = excludedParties.map((x, i) => ({
+	const excludedPartyOutputs: PartyOutputModel[] = excludedParties.map((x) => ({
 		...x,
 		percentage: x.votes / totalTurnout,
 		seats: 0
@@ -41,6 +41,9 @@ export function calculate(input: ElectionInputModel): ElectionOutputModel {
 	// partyOutputs.sort((y, x) => (x.votes - y.votes));
 	return {
 		neededForMajority: Math.floor(1 + input.config.seatsTotal / 2),
+		isDivisorMethod: isDivisorMethod(methodName),
+		resultApproximation,
+		seats: seats.reduce(add, 0),
 		parties: partyOutputs,
 		hasThreshold: input.config.threshold !== undefined,
 		totalVotes: totalTurnout,

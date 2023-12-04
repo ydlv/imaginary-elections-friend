@@ -5,6 +5,7 @@ import { ElectionModel } from "../model/election-model";
 import { findIndex, findWithIndex, remove } from "../../util/id-array-operations";
 import { setAttributeFromPartial } from "../../util/set-attribute";
 import { generateParty } from "../misc/generate-party";
+import { isDivisorMethod } from "../model/apportionment-method";
 
 export const electionStorePart: ElectionModel = {
 	electionInput: {
@@ -16,6 +17,7 @@ export const electionStorePart: ElectionModel = {
 			seatsTotal: 120,
 			method: "jefferson",
 			threshold: undefined,
+			ifNotExact: "high",
 		},
 	},
 	addParty: action((state) => {

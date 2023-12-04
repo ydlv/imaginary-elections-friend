@@ -1,14 +1,16 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import React from "react";
-import { useStoreState, useStoreActions } from "../../../../store/store";
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
-import { ApportionmentMethodName, methodHumanName } from "../../../../store/model/apportionment-method";
+import { ApportionmentMethodName, methodHumanName } from "../../../../../store/model/apportionment-method";
+import { useStoreActions, useStoreState } from "../../../../../store/store";
+import HighLowSelector from "./HighLowSelector";
 
 const methods = Object.entries(methodHumanName);
 
 export default function MethodSelector() {
 	const method = useStoreState(state => state.electionInput.config.method);
 	const setMethod = useStoreActions(state => state.editConfig);
+	
 
 	return (
 		<FormControl>
@@ -24,6 +26,7 @@ export default function MethodSelector() {
 					<MenuItem value={method} key={method}>{humanName}</MenuItem>
 				))}
 			</Select>
+			<HighLowSelector />
 		</FormControl>
 	);
 }

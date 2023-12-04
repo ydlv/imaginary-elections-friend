@@ -1,5 +1,4 @@
 import React from "react";
-import { appName } from "../../meta";
 import { Grid, Typography } from "@mui/material";
 import { PartyTable } from "../core/elections/output/PartyTable";
 import { PartyComponent } from "../core/elections/input/parties/party-component";
@@ -8,6 +7,7 @@ import PartyPercentsOutput from "../core/elections/output/PartyPercentsOutput";
 import { TurnoutOutput } from "../core/turnout/TurnoutOutput";
 import PopularVoteChart from "../core/charts/PopularVoteChart";
 import ParliamentChart from "../core/charts/ParliamentChart";
+import NotExactAlert from "../core/elections/output/NotExactAlert";
 const containerStyle = {
 	display: "flex",
 	alignItems: "center", // Center items vertically
@@ -38,6 +38,9 @@ const padded = { padding: "4em" };
 export default function OutputPage() {
 	return (
 		<Grid container>
+			<Grid item xs={12}>
+				<NotExactAlert />
+			</Grid>
 			<Grid item xs={7} style={padded}>
 				<TurnoutOutput />
 				<PartyTable fields={fields} />

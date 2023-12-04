@@ -1,5 +1,5 @@
-import { PartyOutputModel } from "../../store/model/election-model";
-import { useStoreState } from "../../store/store";
+import { PartyOutputModel } from "../../../store/model/election-model";
+import { useStoreState } from "../../../store/store";
 import { PieChartProps } from "@mui/x-charts/PieChart/PieChart";
 
 type SeriesType = PieChartProps["series"];

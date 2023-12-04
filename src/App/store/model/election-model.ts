@@ -1,6 +1,6 @@
 import { Action, Computed } from "easy-peasy";
 import { AppModel } from "./app-model";
-import { ApportionmentMethodName } from "./apportionment-method";
+import { ApportionmentMethodName, HighLow, ResultApproximation } from "./apportionment-method";
 
 export interface PartyInputModel extends HasID {
     name: string;
@@ -12,6 +12,7 @@ export interface ElectionConfigModel {
     threshold?: Rational;
     seatsTotal: int;
     method: ApportionmentMethodName;
+    ifNotExact: HighLow;
 }
 
 export interface PartyOutputModel extends PartyInputModel {
@@ -30,6 +31,9 @@ export interface ElectionOutputModel {
     hasThreshold: boolean;
     totalVotes: int;
     methodHumanName: string;
+    seats: int;
+    isDivisorMethod: boolean;
+    resultApproximation: ResultApproximation;
 }
 
 

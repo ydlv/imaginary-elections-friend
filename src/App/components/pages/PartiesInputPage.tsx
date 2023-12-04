@@ -1,5 +1,4 @@
 import React from "react";
-import { useStoreActions, useStoreState } from "../store/store";
 import { Button, Grid, IconButton, Input, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
 
 import PartyNameEditor from "../core/elections/input/parties/PartyNameEditor";
@@ -16,6 +15,7 @@ import { TurnoutOutput } from "../core/turnout/TurnoutOutput";
 import ParliamentChart from "../core/charts/ParliamentChart";
 import PopularVoteChart from "../core/charts/PopularVoteChart";
 import OutputPreview from "../core/elections/output/OutputPreview";
+import { useStoreActions } from "../../store/store";
 
 
 const fields: [string, PartyComponent][] = [

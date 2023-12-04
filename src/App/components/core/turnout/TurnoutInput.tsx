@@ -1,6 +1,6 @@
 import React from "react";
-import { useStoreState, useStoreActions } from "../../store/store";
-import NumberField from "../../components/utils/input/NumberField";
+import { useStoreState, useStoreActions } from "../../../store/store";
+import NumberField from "../../../components/utils/input/NumberField";
 import { Checkbox, FormControlLabel } from "@mui/material";
 
 

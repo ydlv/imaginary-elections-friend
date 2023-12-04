@@ -1,8 +1,9 @@
 import * as apt from "apportionment";
 
 export type ApportionmentMethodName = "hamilton" | "jefferson" | "adams" | "webster" | "huntingtonHill";
-
-export type ApportionmentMethod = (votes: number[], seats: number) => number[];
+export type ResultApproximation = "high" | "low" | "exact" | "n/a";
+export type HighLow = "high" | "low";
+export type ApportionmentMethod = (votes: number[], seats: number, ifNotExact: HighLow) => [number[], ResultApproximation];
 
 export const methodHumanName: Record<ApportionmentMethodName, string> = {
 	hamilton: "Hamilton (Largest remainder method; Hare–Niemeyer; Vinton)",
@@ -15,15 +16,22 @@ export const methodHumanName: Record<ApportionmentMethodName, string> = {
 // not exported by library
 type DivisorMethodResult = ReturnType<typeof apt.adams>;
 
-function apportionmentFrom(result: DivisorMethodResult) {
-	// todo: select between low and high
-	return (result.exact || result.high).apportionment;
+function apportionmentFrom(result: DivisorMethodResult, ifNotExact: HighLow): [number[], ResultApproximation] {
+	if(result.exact) {
+		console.log("exactly", result.exact);
+		return [result.exact.apportionment, "exact"];
+	}
+	return [result[ifNotExact].apportionment, ifNotExact];
 }
 
 export const methods: Record<ApportionmentMethodName, ApportionmentMethod> = {
-	adams: (votes, seats) => apportionmentFrom(apt.adams(votes, seats)),
-	hamilton: (votes, seats) => apt.hamilton(votes, seats).apportionment,
-	huntingtonHill: (votes, seats) => apportionmentFrom(apt.huntingtonHill(votes, seats)),
-	jefferson: (votes, seats) => apportionmentFrom(apt.jefferson(votes, seats)),
-	webster: (votes, seats) => apportionmentFrom(apt.webster(votes, seats))
+	adams: (votes, seats, ifNotExact) => apportionmentFrom(apt.adams(votes, seats), ifNotExact),
+	hamilton: (votes, seats, _) => [apt.hamilton(votes, seats).apportionment, "n/a"],
+	huntingtonHill: (votes, seats, ifNotExact) => apportionmentFrom(apt.huntingtonHill(votes, seats), ifNotExact),
+	jefferson: (votes, seats, ifNotExact) => apportionmentFrom(apt.jefferson(votes, seats), ifNotExact),
+	webster: (votes, seats, ifNotExact) => apportionmentFrom(apt.webster(votes, seats), ifNotExact)
 };
+
+export function isDivisorMethod(method: ApportionmentMethodName) {
+	return method !== "hamilton";
+}

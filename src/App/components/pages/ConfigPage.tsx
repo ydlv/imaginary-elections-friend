@@ -1,12 +1,12 @@
 
 import React from "react";
-import { useStoreState, useStoreActions } from "../store/store";
-import NumberField from "../components/utils/input/NumberField";
 import { Box, Card, Grid } from "@mui/material";
 import ThresholdSelector from "../core/elections/input/config/ThresholdSelector";
 import { TurnoutInput } from "../core/turnout/TurnoutInput";
 import MethodSelector from "../core/elections/input/config/MethodSelector";
 import OutputPreview from "../core/elections/output/OutputPreview";
+import NumberField from "../utils/input/NumberField";
+import { useStoreActions, useStoreState } from "../../store/store";
 
 
 

@@ -19,8 +19,8 @@ export default function HighLowSelector() {
 				label="Age"
 				onChange={e => editConfig({ ifNotExact: e.target.value as HighLow })}
 			>
-				<MenuItem value={"high"} key={"high"}>high approximation</MenuItem>
-				<MenuItem value={"low"} key={"low"}>high approximation</MenuItem>
+				<MenuItem value={"high"} key={"high"}>add seats</MenuItem>
+				<MenuItem value={"low"} key={"low"}>remove seats</MenuItem>
 			</Select>
 		</FormControl>
 	)}</>);

@@ -1,6 +1,6 @@
 
 import { InputProps, TextField } from "@mui/material";
-import { noop } from "../../util/fp";
+import { noop } from "../../../util/fp";
 import React from "react";
 
 export interface NumberFieldProps {

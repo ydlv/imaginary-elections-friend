@@ -7,7 +7,7 @@ import { PartyComponent } from "../core/elections/input/parties/party-component"
 import PartyColorEditor from "../core/elections/input/parties/PartyColorEditor";
 import PartyVotesEditor from "../core/elections/input/parties/PartyVotesEditor";
 import PartyPercentsOutput from "../core/elections/output/PartyPercentsOutput";
-import { PartyTable } from "../components/PartyTable";
+import { PartyTable } from "../core/elections/output/PartyTable";
 import createPartyOutputComponent from "../core/elections/output/party-output";
 
 import { Add } from "@material-ui/icons";

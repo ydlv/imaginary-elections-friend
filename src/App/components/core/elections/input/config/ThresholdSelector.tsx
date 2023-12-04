@@ -2,7 +2,7 @@
 import React from "react";
 import { useStoreState, useStoreActions } from "../../../../store/store";
 import { Switch } from "@mui/material";
-import NumberField from "../../../../components/input/NumberField";
+import NumberField from "../../../../components/utils/input/NumberField";
 
 
 export default function ThresholdSelector() {

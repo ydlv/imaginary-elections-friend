@@ -3,7 +3,7 @@ import { useStoreState, useStoreActions } from "../../../../store/store";
 import { find } from "../../../../util/id-array-operations";
 import { PartyComponent } from "./party-component";
 import React from "react";
-import NumberField from "../../../../components/input/NumberField";
+import NumberField from "../../../../components/utils/input/NumberField";
 
 const PartyVotesEditor: PartyComponent = ({id}) => {
 	

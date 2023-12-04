@@ -4,7 +4,7 @@ import { calculate } from "../computations/calculations";
 import { ElectionModel } from "../model/election-model";
 import { findIndex, findWithIndex, remove } from "../../util/id-array-operations";
 import { setAttributeFromPartial } from "../../util/set-attribute";
-import { generateParty } from "../../misc/generate-party";
+import { generateParty } from "../misc/generate-party";
 
 export const electionStorePart: ElectionModel = {
 	electionInput: {

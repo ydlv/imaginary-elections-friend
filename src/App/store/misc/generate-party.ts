@@ -1,6 +1,6 @@
 import { fakerEN_US as faker } from "@faker-js/faker";
-import cssColors from "../util/css-colors";
-import { capitalizeEachWord, splitCamelCase } from "../util/string-helpers";
+import cssColors from "../../util/css-colors";
+import { capitalizeEachWord, splitCamelCase } from "../../util/string-helpers";
 
 const colorEntries = Object.entries(cssColors);
 

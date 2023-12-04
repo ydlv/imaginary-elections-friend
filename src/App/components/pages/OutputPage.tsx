@@ -1,7 +1,7 @@
 import React from "react";
 import { appName } from "../../meta";
 import { Grid, Typography } from "@mui/material";
-import { PartyTable } from "../components/PartyTable";
+import { PartyTable } from "../core/elections/output/PartyTable";
 import { PartyComponent } from "../core/elections/input/parties/party-component";
 import createPartyOutputComponent from "../core/elections/output/party-output";
 import PartyPercentsOutput from "../core/elections/output/PartyPercentsOutput";

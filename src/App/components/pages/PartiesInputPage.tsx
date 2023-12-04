@@ -16,6 +16,8 @@ import PopularVoteChart from "../core/charts/PopularVoteChart";
 import OutputPreview from "../core/elections/output/OutputPreview";
 import { useStoreActions } from "../../store/store";
 import PartyActionButtons from "../core/elections/input/parties/action-buttons/PartyActionButtons";
+import AddVoters from "../core/elections/input/parties/change-voters/AddVoters";
+import ChangeVoters from "../modals/ChangeVoters";
 
 
 const fields: [string, PartyComponent][] = [
@@ -43,6 +45,8 @@ export function PartiesInputPage() {
 			<Grid item xs={4} style={padded}>
 				<OutputPreview/>
 			</Grid>
+
+			<ChangeVoters />
 		</Grid>
 	);
 }

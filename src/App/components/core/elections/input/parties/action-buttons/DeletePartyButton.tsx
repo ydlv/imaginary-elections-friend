@@ -7,7 +7,7 @@ import DeleteConfirm from "../../../../../modals/DeleteConfirm";
 
 
 const DeletePartyButton: PartyComponent = ({ id }) => {
-	const canRemove = useStoreState(state => state.electionInput.parties.length > 1);
+	const canRemove = useStoreState(state => state.electionInput.parties.length > 2);
 	const removeParty = useStoreActions(state => state.removeParty);
 	const [isOpen, setOpen] = useState(false);
 	const onClosed = (sure: boolean) => {

@@ -2,6 +2,7 @@ import { useStoreState } from "../../../../store/store";
 import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
 import { PartyComponent } from "../input/parties/party-component";
 import React from "react";
+import AddVoters from "../input/parties/change-voters/AddVoters";
 
 export interface PartyTableProps {
 	fields: [string, PartyComponent][];

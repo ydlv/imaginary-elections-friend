@@ -39,11 +39,12 @@ export function calculate(input: ElectionInputModel): ElectionOutputModel {
 	}));
 	const partyOutputs: PartyOutputModel[] = [...includedPartyOutputs, ...excludedPartyOutputs];
 	// partyOutputs.sort((y, x) => (x.votes - y.votes));
+	const seatAmount = seats.reduce(add, 0);
 	return {
-		neededForMajority: Math.floor(1 + input.config.seatsTotal / 2),
+		neededForMajority: Math.floor(1 + seatAmount / 2),
 		isDivisorMethod: isDivisorMethod(methodName),
 		resultApproximation,
-		seats: seats.reduce(add, 0),
+		seats: seatAmount,
 		parties: partyOutputs,
 		hasThreshold: input.config.threshold !== undefined,
 		totalVotes: totalTurnout,

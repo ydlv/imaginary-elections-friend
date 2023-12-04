@@ -1,7 +1,7 @@
 import { computed, action } from "easy-peasy";
 import { add } from "../../util/fp";
 import { TurnoutModel } from "../model/turnout-model";
-import { setAttribute, setAttributeFromPartial } from "../../util/set-attribute";
+import { setAttributeFromPartial } from "../../util/set-attribute";
 
 
 export const turnoutStorePart: TurnoutModel = {

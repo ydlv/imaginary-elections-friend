@@ -13,20 +13,22 @@ export default function MethodSelector() {
 	
 
 	return (
-		<FormControl>
-			<InputLabel id="demo-simple-select-label">{"Apportionment method "}</InputLabel>
-			<Select
-				labelId="demo-simple-select-label"
-				id="demo-simple-select"
-				value={method}
-				label="Age"
-				onChange={e => setMethod({ method: e.target.value as ApportionmentMethodName })}
-			>
-				{methods.map(([method, humanName]) => (
-					<MenuItem value={method} key={method}>{humanName}</MenuItem>
-				))}
-			</Select>
+		<>
+			<FormControl>
+				<InputLabel id="demo-simple-select-label">{"Apportionment method "}</InputLabel>
+				<Select
+					labelId="demo-simple-select-label"
+					id="demo-simple-select"
+					value={method}
+					label="Age"
+					onChange={e => setMethod({ method: e.target.value as ApportionmentMethodName })}
+				>
+					{methods.map(([method, humanName]) => (
+						<MenuItem value={method} key={method}>{humanName}</MenuItem>
+					))}
+				</Select>
+			</FormControl>
 			<HighLowSelector />
-		</FormControl>
+		</>
 	);
 }

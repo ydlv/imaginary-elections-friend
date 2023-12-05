@@ -3,6 +3,7 @@ import { PieChart } from "@mui/x-charts";
 import { createChangeVotersComponent } from "./create-change-voters-components";
 import React from "react";
 import { add } from "../../../../../../util/fp";
+import { Stack } from "@mui/material";
 
 const AddVoters = createChangeVotersComponent(data => {
 	
@@ -15,12 +16,12 @@ const AddVoters = createChangeVotersComponent(data => {
 
 	return (
 		<div>
-			<div>
+			<Stack direction={"row"} alignItems={"center"}>
 				<span>Votes to add to {data.selectedParty.name}: &nbsp;</span>
 				<NumberField value={data.state.add.amount}
 					onChange={onFieldChange}
 					inputProps={{min: 0}} />
-			</div>
+			</Stack>
 			<div>
 				<PieChart width={800} height={150} series={[{
 					data: [

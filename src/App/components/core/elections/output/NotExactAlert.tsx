@@ -8,7 +8,7 @@ import routes from "../../../routing/routes";
 function Template(props: {highLow: HighLow, actualSeats: number, prefferedSeats: number}) {
 	return (
 		<Alert severity={"warning"}>
-            No exact apportionment found. As per {"your "}
+			{"No exact apportionment found. As per your "}
 			<Link to={routes.config}>preferences</Link>,
             an apportionment with a {props.highLow}er numbre of seats was found.
             This apportionment has {props.actualSeats} seats instead of {props.prefferedSeats}.

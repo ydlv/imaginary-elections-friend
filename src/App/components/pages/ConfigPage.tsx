@@ -1,6 +1,6 @@
 
 import React from "react";
-import { Box, Card, Grid } from "@mui/material";
+import { Box, Card, Grid, Stack } from "@mui/material";
 import ThresholdSelector from "../core/elections/input/config/ThresholdSelector";
 import { TurnoutInput } from "../core/turnout/TurnoutInput";
 import MethodSelector from "../core/elections/input/config/MethodSelector";
@@ -17,25 +17,27 @@ export default function ConfigPage() {
 
 	return (
 		<Grid container>
-			<Grid item xs={8}>
-				<h1>Config</h1>
-				<div>
-                Seats in parliament:{" "}
-					<NumberField
-						inputProps={{ type: "number", inputProps: { min: 1 } }}
-						value={(config.seatsTotal)}
-						onChange={num => editConfig({ seatsTotal: num })}
+			<Grid item xs={6}>
+				<Stack spacing={3}>
+					<h1>Config</h1>
+					<Stack direction={"row"} spacing={2} alignItems={"center"}>
+						<span>Seats in parliament:</span>
+						<NumberField
+							inputProps={{ type: "number", inputProps: { min: 1 } }}
+							value={(config.seatsTotal)}
+							onChange={num => editConfig({ seatsTotal: num })}
                     
-					/>
-				</div>
-				<div>
-					{majority.toString()} seats needed for majority
-				</div>
-				<ThresholdSelector />
-				<MethodSelector/>
-				<TurnoutInput/>
+						/>
+					</Stack>
+					<div>
+						{majority.toString()} seats needed for majority
+					</div>
+					<ThresholdSelector />
+					<MethodSelector/>
+					<TurnoutInput/>
+				</Stack>
 			</Grid>
-			<Grid item xs={4}>
+			<Grid item xs={6}>
 				<OutputPreview/>
 			</Grid>
 		</Grid>

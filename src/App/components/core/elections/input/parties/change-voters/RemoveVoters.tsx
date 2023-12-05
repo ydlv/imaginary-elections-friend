@@ -4,6 +4,7 @@ import { createChangeVotersComponent } from "./create-change-voters-components";
 import { PieChart } from "@mui/x-charts";
 import { add } from "../../../../../../util/fp";
 import NumberField from "../../../../../utils/input/NumberField";
+import { Stack } from "@mui/material";
 
 const RemoveVoters = createChangeVotersComponent(data => {
 	
@@ -17,12 +18,12 @@ const RemoveVoters = createChangeVotersComponent(data => {
 
 	return (
 		<div>
-			<div>
-				<span>Votes to add to {data.selectedParty.name}: &nbsp;</span>
+			<Stack direction={"row"} alignItems={"center"}>
+				<span>Votes to remove from {data.selectedParty.name}: &nbsp;</span>
 				<NumberField value={removedVoters}
 					onChange={onFieldChange}
 					inputProps={{min: 0, max: currentPartyVotes}} />
-			</div>
+			</Stack>
 			<div>
 				<PieChart width={800} height={150} series={[{
 					data: [

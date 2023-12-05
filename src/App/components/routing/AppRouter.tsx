@@ -5,7 +5,7 @@ import MenuIcon from "@mui/icons-material/Menu";import {
 	Routes,
 	useNavigate
 } from "react-router-dom";
-import { AppBar, Box, CssBaseline, Grid, IconButton, Paper, Toolbar, Typography, styled } from "@mui/material";
+import { AppBar, Box, CssBaseline, Grid, IconButton, Paper, Stack, Toolbar, Typography, styled } from "@mui/material";
 
 import ConfigPage from "../pages/ConfigPage";
 import { AppNavLinks } from "./AppNavLinks";
@@ -19,16 +19,10 @@ import "@fontsource/caveat";
 
 function Brand() {
 	return (
-		<table style={{fontFamily: "caveat", paddingRight: "2em"}}>
-			<tr>
-				<td>
-					<img src="/circle_logo.png" style={{height: "5em"}} />
-				</td>
-				<td>
-					{appName}
-				</td>
-			</tr>
-		</table>
+		<Stack direction="row" spacing={0}>
+			<img src="/circle_logo.png" style={{height: "5em"}} />
+			<span style={{fontFamily: "caveat", paddingRight: "2em"}}>{appName}</span>
+		</Stack>
 	);
 }
 

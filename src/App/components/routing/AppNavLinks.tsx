@@ -11,7 +11,6 @@ const links: [keyof typeof routes, React.ReactNode][] = [
 ];
 
 export function AppNavLinks() {
-	const theme = useTheme();
 	return (
 		<>
 			{links.map(([k, link], i) => (

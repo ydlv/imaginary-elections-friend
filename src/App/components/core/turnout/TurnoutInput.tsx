@@ -1,7 +1,7 @@
 import React from "react";
 import { useStoreState, useStoreActions } from "../../../store/store";
 import NumberField from "../../../components/utils/input/NumberField";
-import { Checkbox, FormControlLabel } from "@mui/material";
+import { Checkbox, FormControl, FormControlLabel, InputLabel, Stack } from "@mui/material";
 
 
 export function TurnoutInput() {
@@ -17,15 +17,15 @@ export function TurnoutInput() {
 					/>} label={<h2>{"Calculate voter turnout %"}</h2>}/>
 			</h2>
 			{enabled && (
-				<p>
-					Elligible voters:{" "}
+				<Stack direction={"row"} alignItems={"center"}>
+					{"elligible voters: "}&nbsp;
 					<NumberField
 						inputProps={{min: 1}}
 						value={(elligibleVoterCount)}
 						integer={true}
 						onChange={num => edit({ elligibleVoters: num })}
 					/>
-				</p>
+				</Stack>
 			)}
 		</>
 	);

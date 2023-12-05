@@ -1,46 +1,67 @@
-# Getting Started with Create React App
+# Welcome to Imaginary elections friend!
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## What is this?
 
-In the project directory, you can run:
+Imaginary elections friend is an app that can be used to calculate [parliamentary apportioment](https://en.wikipedia.org/wiki/Apportionment_(politics)) from election results.
 
-### `npm start`
+## Who is it for?
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Likely the only people who will find this useful are [r/imaginaryelections](https://www.reddit.com/r/imaginaryelections/), a subreddit dedidcated to... well, imaginary elections. Elections in alternative timelines, fictional universes, and what-ifs, in the future, past, present.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Wait that's a thing?
 
-### `npm test`
+Appearantly!
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Why did you make this?
 
-### `npm run build`
+Mostly to learn [React](https://react.dev/). And because when I showed r/imaginaryelections screenshots, they asked when will it be published.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Is there a user tutorial?
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Not right now, but maybe in the future. For now, I hope it's user-friendly enough.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Are there more features planned? Are you taking notes?
 
-### `npm run eject`
+Yes, there are more features plan. You can give me your notes on the dedidcated reddit post (link will be here - if you're seeing this message, give me a bit of time to update this!).Sadly, not every idea will be made. For example, I was asked to support [Single Transferrable Vote method](https://en.wikipedia.org/wiki/Single_transferable_vote), which I don't think will likely go well with how this app works.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## So there will definitely be further versions?
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+No promises, but maybe.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Some things aren't aligned properly
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Yes, I'm not much of an expert on [CSS](https://en.wikipedia.org/wiki/CSS), yet. However, improved design is on the list of planned updated.
 
-## Learn More
+## And it doesn't work on my phone!
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Yes, support for mobile is also currently in the TODO pile, and may or not be done soon. In the meantime, it's advised to use on a computer. Sorry!
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Are you taking [pull-requests](https://en.wikipedia.org/wiki/Distributed_version_control#Pull_requests)?
+
+I don't know. Maybe.
+
+## What does this app use?
+
+In no particular order:
+
+*   [MUI (Material UI)](http://mui.com) for UI
+*   [React](https://react.dev/) to run
+*   [Github Pages](https://pages.github.com/) as a host
+*   [@mui/icons-material](https://www.npmjs.com/package/@mui/icons-material) for icons
+*   [@fontsource/roboto](https://www.npmjs.com/package/@fontsource/roboto) for app font
+*   [@fontsource/caveat](https://www.npmjs.com/package/@fontsource/caveat) for logo font
+*   [@mui/x-charts](https://www.npmjs.com/package/@mui/x-charts) for charts
+*   [apportionment](https://www.npmjs.com/package/apportionment) for apportionment calculations
+*   [easy-peasy](https://www.npmjs.com/package/easy-peasy) for state management
+*   [mui-color-input](https://www.npmjs.com/package/mui-color-input) for color input
+*   [@faker-js/faker](https://www.npmjs.com/package/@faker-js/faker) to give new parties random color and a fun random name
+*   [@emotion/react](https://www.npmjs.com/package/@emotion/react)
+*   [uniqid](https://www.npmjs.com/package/uniqid)
+*   [typescript](https://www.npmjs.com/package/typescript) type safety
+
+If you think I'm missing an acknowledgement here, sorry in advance, and please let me know via Github Issues. A full auto-generated (by yarn) disclosure can be found in the github repository.
+
+## Did you have to make an about page in Q&A format?
+
+It's a crutch, but... OK that's enough from you.

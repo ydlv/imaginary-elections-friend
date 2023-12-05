@@ -20,7 +20,7 @@ import "@fontsource/caveat";
 function Brand() {
 	return (
 		<Stack direction="row" spacing={0} alignItems={"center"}>
-			<img src="/circle_logo.png" style={{height: "5em"}} />
+			<img src="circle_logo.png" style={{height: "5em"}} />
 			<span style={{fontFamily: "caveat", paddingRight: "2em", fontSize: "xx-large"}}>{appName}</span>
 		</Stack>
 	);

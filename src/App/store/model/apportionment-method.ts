@@ -18,7 +18,6 @@ type DivisorMethodResult = ReturnType<typeof apt.adams>;
 
 function apportionmentFrom(result: DivisorMethodResult, ifNotExact: HighLow): [number[], ResultApproximation] {
 	if(result.exact) {
-		console.log("exactly", result.exact);
 		return [result.exact.apportionment, "exact"];
 	}
 	return [result[ifNotExact].apportionment, ifNotExact];

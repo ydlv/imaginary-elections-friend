@@ -81,6 +81,4 @@ export function initParties(model: Store<AppModel>) {
 
 	model.dispatch.change.selectParty(firstID);
 	model.dispatch.change.setPayload({ type: "move", amount: 0, targetParty: secondID });
-
-	console.log("after init", model.getState());
 }

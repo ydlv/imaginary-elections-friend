@@ -21,7 +21,6 @@ function Main() {
 	}, []);
 
 	const isMobile = width <= 768;
-	console.log({isMobile});
 	const [showModal, setShowModal] = useState(isMobile);
 
 	return (

@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/imaginary-elections-friend/static/css/main.434a7ee1.css",
-    "main.js": "/imaginary-elections-friend/static/js/main.d6ffa4ec.js",
+    "main.js": "/imaginary-elections-friend/static/js/main.d4b0cd1b.js",
     "static/js/890.2fc6cf74.chunk.js": "/imaginary-elections-friend/static/js/890.2fc6cf74.chunk.js",
     "static/media/caveat-latin-400-normal.woff": "/imaginary-elections-friend/static/media/caveat-latin-400-normal.b63d04c47a53c9a3043b.woff",
     "static/media/caveat-cyrillic-400-normal.woff": "/imaginary-elections-friend/static/media/caveat-cyrillic-400-normal.1c959dcbefee43c14c97.woff",
@@ -69,11 +69,11 @@
     "static/media/roboto-greek-ext-700-normal.woff": "/imaginary-elections-friend/static/media/roboto-greek-ext-700-normal.249853776d22a271b2b5.woff",
     "index.html": "/imaginary-elections-friend/index.html",
     "main.434a7ee1.css.map": "/imaginary-elections-friend/static/css/main.434a7ee1.css.map",
-    "main.d6ffa4ec.js.map": "/imaginary-elections-friend/static/js/main.d6ffa4ec.js.map",
+    "main.d4b0cd1b.js.map": "/imaginary-elections-friend/static/js/main.d4b0cd1b.js.map",
     "890.2fc6cf74.chunk.js.map": "/imaginary-elections-friend/static/js/890.2fc6cf74.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.434a7ee1.css",
-    "static/js/main.d6ffa4ec.js"
+    "static/js/main.d4b0cd1b.js"
   ]
 }

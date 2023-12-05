@@ -12,7 +12,7 @@ const PartyColorEditor: PartyComponent = ({id}) => {
 	const editColor = (color: string) => editParty({ id, color });
 
 	return (
-		<MuiColorInput value={partyInput.color} onChange={editColor} />
+		<MuiColorInput style={{width: "10em"}} value={partyInput.color} onChange={editColor} />
 	);
 };
 

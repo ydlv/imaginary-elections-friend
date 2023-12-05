@@ -10,13 +10,27 @@ export interface NumberFieldProps {
     integer?: boolean
 }
 
+function toValue(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, props: NumberFieldProps) {
+	const parser = props.integer ? parseInt : parseFloat;
+	const value = parser(e.target.value);
+	if(value != value) {
+		// NaN
+		return props.value;
+	}
+	const {min, max} = props.inputProps as { min?: number, max?: number };
+	if(min !== undefined && value < min) return min;
+	if(max !== undefined && value > max) return max;
+	return value;
+}
+
 export default function NumberField(props: NumberFieldProps) {
 	const further: Partial<InputProps> = props.inputProps || {};
 	return (
 		<TextField
 			inputProps={{ type: "number",  }}
 			value={(props.value)}
-			onChange={e => (props.onChange || noop)((props.integer ? parseInt : parseFloat)(e.target.value) || 0)}
+			onChange={e => (props.onChange || noop)(toValue(e, props))}
+			
 			InputProps={further}
 		/>
 	);

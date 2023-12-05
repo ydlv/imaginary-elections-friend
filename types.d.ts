@@ -6,3 +6,4 @@ declare type HasID = {id: ID};
 declare interface Togglable {
     enabled: boolean;
 }
+declare type EmptyObject = Record<string, never>;

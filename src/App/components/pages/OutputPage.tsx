@@ -8,6 +8,8 @@ import { TurnoutOutput } from "../core/turnout/TurnoutOutput";
 import PopularVoteChart from "../core/charts/PopularVoteChart";
 import ParliamentChart from "../core/charts/ParliamentChart";
 import NotExactAlert from "../core/elections/output/NotExactAlert";
+import { VotersAmount } from "../core/elections/output/VotersAmount";
+import { useStoreState } from "../../store/store";
 const containerStyle = {
 	display: "flex",
 	alignItems: "center", // Center items vertically
@@ -36,6 +38,7 @@ const fields: [string, PartyComponent][] = [
 const padded = { padding: "4em" };
 
 export default function OutputPage() {
+	const output = useStoreState(state => state.electionOutput);
 	return (
 		<Grid container>
 			<Grid item xs={12}>
@@ -43,9 +46,13 @@ export default function OutputPage() {
 			</Grid>
 			<Grid item xs={7} style={padded}>
 				<TurnoutOutput />
+				<p>{output.neededForMajority} / {output.seats} needed for majority</p>
 				<PartyTable fields={fields} />
 			</Grid>
 			<Grid item xs={5} style={padded}>
+				<div>
+					<VotersAmount/>
+				</div>
 				<div >
 					<Typography component={"h2"}>Popular vote</Typography>
 					<PopularVoteChart height={400} width={400}

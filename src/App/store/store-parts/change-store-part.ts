@@ -67,7 +67,7 @@ export const changePart: ChangeVotersModel = {
 			setAttributeFromPartial(state, payload.type, payload);
 		}),
 	},
-	commitChange: action((state, _) => {
+	commitChange: action((state) => {
 		mutators[state.change.selectedAction](state);
 		state.change.modalOpen = false;
 	}),

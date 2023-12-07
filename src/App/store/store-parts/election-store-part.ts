@@ -31,6 +31,12 @@ export const electionStorePart: ElectionModel = {
 	}),
 	removeParty: action((state, id) => {
 		remove(state.electionInput.parties, id);
+		
+		const parties = state.electionInput.parties;
+		const firstID = parties[0].id, secondID = parties[1].id;
+
+		state.change.selectedParty = firstID;
+		state.change.move.targetParty = secondID;
 	}),
 	editConfig: action((state, config) => {
 		setAttributeFromPartial(state.electionInput, "config", config);
